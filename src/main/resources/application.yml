@@ -1,0 +1,19 @@
+# 应用服务器端口
+server:
+  port: 8080   # 内置 Tomcat 监听的端口
+
+spring:
+  datasource:
+    # JDBC 连接 URL：数据库地址/库名+常见参数；请根据你的 MySQL 实际地址修改
+    url: jdbc:mysql://localhost:3306/mp_demo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root   # 数据库用户名
+    password: root   # 数据库密码（生产环境请使用安全方式管理）
+    driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL 8 驱动类名
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true  # 开启下划线转驼峰（created_at -> createdAt）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 控制台打印 SQL
+  global-config:
+    db-config:
+      id-type: auto  # 主键策略：数据库自增（AUTO_INCREMENT）
